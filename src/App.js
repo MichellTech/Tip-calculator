@@ -50,14 +50,18 @@ function App() {
     setPannel(5)
   }
 
+  const hello = () => {
+    setPannel(6)
+  }
+
   // authentication for calculations
   const calculate = () => {
-    if (people === '' || people === '0') {
-      setNewerror("Number can't be 0")
-      return setTimeout(setNewerror, 3000)
-    } else if (bill === '' || bill === '0') {
-      setToperror("Bill can't be 0")
-      return setTimeout(setToperror, 3000)
+    if (people === '' || people <= 0) {
+      setNewerror("Number can't be less than 1")
+      return setTimeout(setNewerror, 5000)
+    } else if (bill === '' || bill <= 0) {
+      setToperror("Bill can't be less than 1")
+      return setTimeout(setToperror, 5000)
     } else {
       return tipPerPerson()
     }
@@ -206,6 +210,7 @@ function App() {
                     className='text-center border rounded-md animate-pulse px-1'
                     value={random}
                     onChange={(e) => setRandom(e.target.value)}
+                    onClick={() => hello()}
                   />
                 </div>
               </div>
